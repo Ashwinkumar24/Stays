@@ -1,0 +1,255 @@
+<% layout("/layouts/boilerplate.ejs") %>
+
+<style>
+  .edit-listing-page {
+    max-width: 850px;
+    margin: 50px auto;
+    padding: 0 15px;
+  }
+  .edit-card {
+    background: #fff;
+    border: none;
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+  }
+  .edit-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 8px;
+  }
+  .edit-subtitle {
+    color: #777;
+    margin-bottom: 35px;
+  }
+  .form-section {
+    margin-bottom: 24px;
+  }
+  .form-label {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+  }
+  .required-star {
+    color: #fe424d;
+  }
+  .form-control {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 12px 14px;
+    transition: all 0.2s ease;
+  }
+  .form-control:focus {
+    border-color: #fe424d;
+    box-shadow: 0 0 0 3px rgba(254, 66, 77, 0.1);
+  }
+  textarea.form-control {
+    min-height: 130px;
+    resize: vertical;
+  }
+  .current-image {
+    margin-top: 12px;
+    border-radius: 12px;
+    width: 180px;
+    height: 120px;
+    object-fit: cover;
+    border: 1px solid #eee;
+  }
+  .current-image-label {
+    display: block;
+    font-size: 0.85rem;
+    color: #888;
+    margin-top: 10px;
+  }
+  .edit-btn {
+    width: 100%;
+    background-color: #fe424d;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 13px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-top: 10px;
+    transition: all 0.2s ease;
+  }
+  .edit-btn:hover {
+    background-color: #e63741;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 7px 18px rgba(254, 66, 77, 0.25);
+  }
+  @media (max-width: 768px) {
+    .edit-listing-page {
+      margin: 25px auto;
+    }
+    .edit-card {
+      padding: 25px 20px;
+      border-radius: 18px;
+    }
+    .edit-title {
+      font-size: 1.8rem;
+    }
+  }
+</style>
+<div class="edit-listing-page">
+  <div class="edit-card">
+    <!-- Heading -->
+
+    <h1 class="edit-title">Edit Your Listing</h1>
+
+    <p class="edit-subtitle">
+      Update your listing details and keep your property information fresh.
+    </p>
+
+    <form
+      method="POST"
+      action="/listings/<%= listing._id %>?_method=PUT"
+      novalidate
+      class="needs-validation"
+      enctype="multipart/form-data"
+    >
+      <!-- Title -->
+      <div class="form-section">
+        <label for="title" class="form-label">
+          Listing Title
+          <span class="required-star">*</span>
+        </label>
+
+        <input
+          id="title"
+          name="listing[title]"
+          value="<%= listing.title %>"
+          type="text"
+          class="form-control"
+          required
+        />
+
+        <div class="valid-feedback">✓ Title looks good!</div>
+
+        <div class="invalid-feedback">Please enter a title.</div>
+      </div>
+
+      <!-- Description -->
+
+      <div class="form-section">
+        <label for="description" class="form-label">
+          Description
+          <span class="required-star">*</span>
+        </label>
+
+        <textarea
+          id="description"
+          name="listing[description]"
+          class="form-control"
+          required
+        >
+<%= listing.description %></textarea>
+
+        <div class="valid-feedback">✓ Description looks good!</div>
+
+        <div class="invalid-feedback">Please enter a description.</div>
+      </div>
+
+      <!-- Image -->
+      <div class="form-section">
+        <label for="image" class="form-label"> Update New Image </label>
+
+        <input
+          id="image"
+          name="listing[image]"
+          type="file"
+          class="form-control"
+        />
+
+        <div class="invalid-feedback">Please enter a valid image URL.</div>
+
+        <div class="valid-feedback">✓ Image URL looks good!</div>
+
+        <!-- Current Image -->
+
+        <span class="current-image-label"> Current image </span>
+
+        <img
+          src="<%= listing.image.url %>"
+          alt="Current listing image"
+          class="current-image"
+        />
+      </div>
+
+      <!-- Price + Country -->
+
+      <div class="row">
+        <div class="form-section col-md-4">
+          <label for="price" class="form-label">
+            Price
+            <span class="required-star">*</span>
+          </label>
+
+          <div class="input-group">
+            <span class="input-group-text"> ₹ </span>
+
+            <input
+              id="price"
+              name="listing[price]"
+              value="<%= listing.price %>"
+              type="number"
+              min="0"
+              class="form-control"
+              required
+            />
+          </div>
+
+          <div class="valid-feedback">✓ Price looks good!</div>
+
+          <div class="invalid-feedback">Please enter a valid price.</div>
+        </div>
+
+        <div class="form-section col-md-8">
+          <label for="country" class="form-label">
+            Country
+            <span class="required-star">*</span>
+          </label>
+
+          <input
+            id="country"
+            name="listing[country]"
+            value="<%= listing.country %>"
+            type="text"
+            class="form-control"
+            required
+          />
+
+          <div class="valid-feedback">✓ Country looks good!</div>
+
+          <div class="invalid-feedback">Please enter a valid country.</div>
+        </div>
+      </div>
+
+      <!-- Location -->
+      <div class="form-section">
+        <label for="location" class="form-label">
+          Location
+          <span class="required-star">*</span>
+        </label>
+
+        <input
+          id="location"
+          name="listing[location]"
+          value="<%= listing.location %>"
+          type="text"
+          class="form-control"
+          required
+        />
+
+        <div class="valid-feedback">✓ Location looks good!</div>
+
+        <div class="invalid-feedback">Please enter a valid location.</div>
+      </div>
+
+      <!-- Submit -->
+      <button type="submit" class="btn edit-btn">✨ Save Changes</button>
+    </form>
+  </div>
+</div>

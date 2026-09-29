@@ -1,0 +1,249 @@
+<% layout("/layouts/boilerplate.ejs") %>
+
+<style>
+  .create-listing-page {
+    max-width: 850px;
+    margin: 50px auto;
+    padding: 0 15px;
+  }
+  .create-card {
+    background: #fff;
+    border: none;
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+  }
+  .create-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 8px;
+  }
+  .create-subtitle {
+    color: #777;
+    margin-bottom: 35px;
+  }
+  .form-label {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+  }
+  .form-control {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 12px 14px;
+    transition: all 0.2s ease;
+  }
+  .form-control:focus {
+    border-color: #fe424d;
+    box-shadow: 0 0 0 3px rgba(254, 66, 77, 0.1);
+  }
+  textarea.form-control {
+    min-height: 130px;
+    resize: vertical;
+  }
+  .input-group-text {
+    background: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 10px 0 0 10px;
+    font-weight: 600;
+  }
+  .price-input {
+    border-radius: 0 10px 10px 0 !important;
+  }
+  .form-section {
+    margin-bottom: 24px;
+  }
+  .form-row {
+    margin-bottom: 0;
+  }
+  .add-listing-btn {
+    width: 100%;
+    background: #fe424d;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 13px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-top: 10px;
+    transition: all 0.2s ease;
+  }
+  .add-listing-btn:hover {
+    background: #e63741;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 7px 18px rgba(254, 66, 77, 0.25);
+  }
+  .required-star {
+    color: #fe424d;
+  }
+  .form-hint {
+    font-size: 0.85rem;
+    color: #888;
+    margin-top: 6px;
+  }
+  @media (max-width: 768px) {
+    .create-listing-page {
+      margin: 25px auto;
+    }
+    .create-card {
+      padding: 25px 20px;
+      border-radius: 18px;
+    }
+    .create-title {
+      font-size: 1.8rem;
+    }
+  }
+</style>
+<div class="create-listing-page">
+  <div class="create-card">
+    <!-- Heading -->
+
+    <h1 class="create-title">Create a New Listing</h1>
+
+    <p class="create-subtitle">
+      Share your place with travelers and start hosting.
+    </p>
+
+    <form
+      method="POST"
+      action="/listings"
+      novalidate
+      class="needs-validation"
+      enctype="multipart/form-data"
+    >
+      <!-- Title -->
+
+      <div class="form-section">
+        <label for="title" class="form-label">
+          Listing Title
+          <span class="required-star">*</span>
+        </label>
+
+        <input
+          id="title"
+          name="listing[title]"
+          placeholder="e.g. Cozy Beach House"
+          type="text"
+          class="form-control"
+          required
+        />
+
+        <div class="valid-feedback">✓ Title looks good!</div>
+
+        <div class="invalid-feedback">Please enter a title.</div>
+      </div>
+
+      <!-- Description -->
+
+      <div class="form-section">
+        <label for="description" class="form-label">
+          Description
+          <span class="required-star">*</span>
+        </label>
+
+        <textarea
+          id="description"
+          name="listing[description]"
+          class="form-control"
+          placeholder="Tell guests what makes your place special..."
+          required
+        ></textarea>
+
+        <div class="valid-feedback">✓ Description looks good!</div>
+
+        <div class="invalid-feedback">Please enter a description.</div>
+      </div>
+
+      <!-- Image -->
+
+      <div class="form-section">
+
+        <label for="image" class="form-label">Upload Listing Image </label>
+        <input
+          id="image"
+          name="listing[image]"
+          type="file"
+          class="form-control"
+          required
+        />
+      </div>
+
+      <!-- Price + Country -->
+
+      <div class="row form-row">
+        <div class="form-section col-md-4">
+          <label for="price" class="form-label">
+            Price
+            <span class="required-star">*</span>
+          </label>
+
+          <div class="input-group">
+            <span class="input-group-text"> ₹ </span>
+
+            <input
+              id="price"
+              name="listing[price]"
+              placeholder="5000"
+              class="form-control price-input"
+              type="number"
+              min="0"
+              required
+            />
+          </div>
+
+          <div class="valid-feedback">✓ Price looks good!</div>
+
+          <div class="invalid-feedback">Please enter a valid price.</div>
+        </div>
+
+        <div class="form-section col-md-8">
+          <label for="country" class="form-label">
+            Country
+            <span class="required-star">*</span>
+          </label>
+
+          <input
+            id="country"
+            name="listing[country]"
+            placeholder="e.g. India"
+            type="text"
+            class="form-control"
+            required
+          />
+
+          <div class="valid-feedback">✓ Country looks good!</div>
+
+          <div class="invalid-feedback">Please enter a country name.</div>
+        </div>
+      </div>
+
+      <!-- Location -->
+
+      <div class="form-section">
+        <label for="location" class="form-label">
+          Location
+          <span class="required-star">*</span>
+        </label>
+
+        <input
+          id="location"
+          name="listing[location]"
+          placeholder="e.g. Goa, Maharashtra"
+          type="text"
+          class="form-control"
+          required
+        />
+
+        <div class="valid-feedback">✓ Location looks good!</div>
+
+        <div class="invalid-feedback">Please enter a valid location.</div>
+      </div>
+
+      <!-- Submit -->
+
+      <button type="submit" class="btn add-listing-btn">✨ Add Listing</button>
+    </form>
+  </div>
+</div>

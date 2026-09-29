@@ -1,0 +1,58 @@
+<nav class="navbar navbar-expand-md bg-white border-bottom sticky-top custom-navbar">
+    <div class="container-fluid px-4">
+
+        <!-- Brand Logo -->
+        <a class="navbar-brand d-flex align-items-center gap-2" href="/listings">
+            <i class="fa-brands fa-airbnb brand-icon" style="color: #ff385c; font-size: 2rem;"></i>
+            <span class="brand-text">Stays</span>
+        </a>
+
+        <!-- Mobile Toggler Button -->
+        <button class="navbar-toggler border-0 shadow-none" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar Content -->
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            
+            <!-- Left-side links -->
+            <div class="navbar-nav me-auto">
+                <a class="nav-link explore-link" href="/listings">Explore</a>
+            </div>
+
+            <!-- Beautiful Search Bar -->
+            <form class="d-flex mx-auto my-2 my-md-0 search-bar-container" role="search">
+                <input class="form-control search-input" type="search" placeholder="Search destinations" aria-label="Search"/>
+                <button class="btn search-btn" type="submit">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </form>
+
+            <!-- Right-side User / Action Links -->
+            <div class="navbar-nav ms-auto align-items-md-center gap-2">
+                <a class="nav-link host-link" href="/listings/new">Airbnb your home</a>
+                
+                <div class="user-menu-dropdown d-flex align-items-center border rounded-pill px-3 py-1 gap-2">
+                    <i class="fa-solid fa-bars text-secondary"></i>
+                    <i class="fa-solid fa-circle-user text-secondary fs-5"></i>
+                    
+                    <% if(!currUser) { %>
+                        <div class="auth-links ms-1">
+                            <a class="text-dark text-decoration-none fw-bold me-2" href="/signup">Sign up</a>
+                            <span class="text-muted">·</span>
+                            <a class="text-dark text-decoration-none ms-2" href="/login">Log in</a>
+                        </div>
+                    <% } else { %>
+                        <a class="text-dark text-decoration-none fw-bold ms-1" href="/logout">Logout</a>
+                    <% } %>
+                </div>
+            </div> 
+
+        </div> 
+    </div>
+</nav>

@@ -1,0 +1,566 @@
+/* =========================
+GLOBAL
+========================= */
+
+body {
+  font-family: "Plus Jakarta Sans", sans-serif !important;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #fff;
+  color: #222;
+}
+
+.container {
+  flex: 1;
+}
+
+/* =========================
+NAVBAR
+========================= */
+
+.navbar {
+  height: 5rem;
+  background-color: white;
+  border-bottom: 1px solid #eee;
+}
+
+.nav-link {
+  color: #222 !important;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: #fe424d !important;
+}
+
+.fa-compass {
+  color: #fe424d;
+  font-size: 2rem;
+}
+
+/* =========================
+FOOTER
+========================= */
+
+.site-footer {
+  margin-top: 70px;
+  background-color: #f8f9fa;
+  border-top: 1px solid #eee;
+  padding: 35px 20px;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 25px;
+}
+
+/* Social Icons */
+
+.footer-socials {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.footer-socials a {
+  color: #333;
+  font-size: 22px;
+  transition: all 0.2s ease;
+}
+
+.footer-socials a:hover {
+  color: #fe424d;
+  transform: translateY(-3px);
+}
+
+/* Footer Brand */
+
+.footer-brand {
+  color: #555;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* Footer Links */
+
+.footer-links {
+  display: flex;
+  gap: 22px;
+}
+
+.footer-links a {
+  color: #555;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: #fe424d;
+  text-decoration: underline;
+}
+
+/* =========================
+LISTING CARDS
+========================= */
+
+.listing-card {
+  border: none !important;
+  border-radius: 18px !important;
+  overflow: hidden;
+
+  background-color: white;
+
+  margin-bottom: 2rem;
+
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+
+  transition: all 0.25s ease;
+}
+
+.listing-card:hover {
+  transform: translateY(-6px);
+
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.12);
+}
+
+/* Card Image */
+
+.card-img-top {
+  width: 100% !important;
+
+  height: 250px;
+
+  object-fit: cover !important;
+
+  border-radius: 18px !important;
+
+  transition: transform 0.4s ease;
+}
+
+.listing-card:hover .card-img-top {
+  transform: scale(1.03);
+}
+
+/* Card Body */
+
+.card-body {
+  padding: 18px !important;
+}
+
+.card-text {
+  color: #555;
+  line-height: 1.5;
+}
+
+.card-text b {
+  color: #222;
+  font-size: 1.05rem;
+}
+
+/* Listing Link */
+
+.listing-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* =========================
+CARD OVERLAY
+========================= */
+
+.card-img-overlay {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.card-img-overlay:hover {
+  opacity: 0.2;
+  background-color: white;
+}
+
+/* =========================
+LISTING PAGE
+========================= */
+
+.listing-page {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 15px;
+}
+
+/* Main Listing Card */
+
+.listing-main-card {
+  border: none;
+  border-radius: 24px;
+  overflow: hidden;
+
+  background-color: white;
+
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+}
+
+.listing-image {
+  width: 100%;
+  height: 430px;
+  object-fit: cover;
+}
+
+.listing-content {
+  padding: 30px;
+}
+
+.listing-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #222;
+}
+
+.description {
+  color: #555;
+  line-height: 1.7;
+}
+
+/* =========================
+CREATE LISTING
+========================= */
+
+.create-listing-page {
+  max-width: 850px;
+  margin: 50px auto;
+  padding: 0 15px;
+}
+
+.create-card {
+  background-color: white;
+
+  border: none;
+  border-radius: 24px;
+
+  padding: 40px;
+
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+}
+
+.create-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #222;
+}
+
+.create-subtitle {
+  color: #777;
+  margin-bottom: 35px;
+}
+
+/* =========================
+FORM
+========================= */
+
+.form-label {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.form-control {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+
+  padding: 12px 14px;
+
+  transition: all 0.2s ease;
+}
+
+.form-control:focus {
+  border-color: #fe424d;
+
+  box-shadow: 0 0 0 3px rgba(254, 66, 77, 0.1);
+}
+
+textarea.form-control {
+  resize: vertical;
+}
+
+/* Submit Button */
+
+.add-listing-btn {
+  width: 100%;
+
+  background-color: #fe424d;
+
+  color: white;
+
+  border: none;
+  border-radius: 12px;
+
+  padding: 13px;
+
+  font-size: 1.05rem;
+  font-weight: 600;
+
+  transition: all 0.2s ease;
+}
+
+.add-listing-btn:hover {
+  background-color: #e63741;
+
+  color: white;
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 7px 18px rgba(254, 66, 77, 0.25);
+}
+
+/* =========================
+BUTTONS
+========================= */
+
+.btn {
+  border-radius: 10px;
+}
+
+/* =========================
+REVIEWS
+========================= */
+
+.review-form {
+  background-color: white;
+
+  border-radius: 20px;
+
+  padding: 30px;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+
+  border: 1px solid #eee;
+}
+
+.review-card {
+  border: none;
+
+  border-radius: 18px;
+
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.07);
+
+  transition: all 0.2s ease;
+}
+
+.review-card:hover {
+  transform: translateY(-3px);
+
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* =========================
+LIKE BUTTON
+========================= */
+
+.like-form {
+  position: absolute;
+
+  top: 15px;
+  right: 15px;
+
+  z-index: 5;
+}
+
+.heart-btn {
+  width: 42px;
+  height: 42px;
+
+  border: none;
+  border-radius: 50%;
+
+  background-color: rgba(255, 255, 255, 0.95);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 22px;
+
+  cursor: pointer;
+
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+
+  transition: all 0.2s ease;
+}
+
+.heart-btn:hover {
+  transform: scale(1.1);
+
+  background-color: white;
+}
+
+/* =========================
+SHOW PAGE
+========================= */
+
+.show-image {
+  height: 30vh;
+  width: 40vh !important;
+
+  object-fit: cover;
+
+  border-radius: 15px;
+}
+
+/* =========================
+MOBILE
+========================= */
+
+@media (max-width: 768px) {
+  .navbar {
+    height: auto;
+    padding: 15px;
+  }
+
+  /* Footer */
+
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-socials {
+    order: 1;
+  }
+
+  .footer-brand {
+    order: 2;
+  }
+
+  .footer-links {
+    order: 3;
+  }
+
+  /* Create Listing */
+
+  .create-listing-page {
+    margin: 25px auto;
+  }
+
+  .create-card {
+    padding: 25px 20px;
+
+    border-radius: 18px;
+  }
+
+  .create-title {
+    font-size: 1.8rem;
+  }
+
+  /* Listing */
+
+  .listing-page {
+    margin: 25px auto;
+  }
+
+  .listing-image {
+    height: 280px;
+  }
+
+  .listing-content {
+    padding: 22px;
+  }
+
+  .listing-title {
+    font-size: 1.6rem;
+  }
+
+  /* Cards */
+
+  .card-img-top {
+    height: 230px;
+  }
+}
+
+.map-section {
+  max-width: 1100px;
+  margin: 50px auto;
+}
+
+.map-header {
+  margin-bottom: 20px;
+}
+
+.map-header h2 {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #222;
+  margin: 0 0 6px;
+}
+
+.map-header p {
+  color: #777;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.map-container {
+  background: #fff;
+  padding: 10px;
+  border-radius: 24px;
+  border: 1px solid #eee;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+#map {
+  width: 100%;
+  height: 450px;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+/* Mapbox controls */
+
+.mapboxgl-ctrl-group {
+  border-radius: 10px !important;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+  .map-section {
+    margin: 35px 12px;
+  }
+
+  .map-container {
+    padding: 7px;
+    border-radius: 18px;
+  }
+
+  #map {
+    height: 350px;
+    border-radius: 14px;
+  }
+}
+
+.search-btn {
+  background-color: #ff385c !important;
+  color: white !important;
+  border-radius: 50% !important;
+  width: 32px !important;
+  height: 32px !important;
+  padding: 0 !important; /* Removes Bootstrap's default padding that throws off centering */
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: none !important;
+  font-size: 0.8rem !important;
+  flex-shrink: 0 !important; /* Prevents the button from squishing */
+}
+

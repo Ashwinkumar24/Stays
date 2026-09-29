@@ -1,0 +1,292 @@
+
+  /* --- Filters Bar Styling --- */
+  #filters {
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    padding: 1.2rem 1rem;
+    background: #fff;
+    border-bottom: 1px solid #ebebeb;
+    margin-bottom: 20px;
+    scrollbar-width: none; /* Firefox */
+  }
+
+  #filters::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+  }
+
+  .filters-container {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    flex-grow: 1;
+  }
+
+  .filter {
+    text-align: center;
+    opacity: 0.6;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .filter:hover {
+    opacity: 1;
+    color: #fe424d;
+  }
+
+  .filter.active {
+    opacity: 1;
+    color: #fe424d;
+    border-bottom: 2px solid #fe424d;
+    padding-bottom: 4px;
+  }
+
+  .filter .icon {
+    font-size: 1.25rem;
+  }
+
+  .filter p {
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  /* --- Tax Toggle Styling --- */
+  .tax-toggle {
+    border: 1px solid #dddddd;
+    border-radius: 12px;
+    height: 3.2rem;
+    padding: 0 1.2rem;
+    display: flex;
+    align-items: center;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    margin-left: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  .form-switch .form-check-input {
+    cursor: pointer;
+    background-color: #b0b0b0;
+    border-color: #b0b0b0;
+  }
+
+  .form-switch .form-check-input:checked {
+    background-color: #222;
+    border-color: #222;
+  }
+
+  .form-switch .form-check-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #222;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .tax-info {
+    display: none;
+    font-style: normal;
+    color: #717171;
+    font-size: 0.9rem;
+  }
+
+  /* --- Listings Page Styling --- */
+  .listings-page {
+    max-width: 1350px;
+    margin: 30px auto;
+    padding: 0 25px;
+  }
+
+  .listings-heading {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 5px;
+  }
+
+  .listings-subtitle {
+    color: #717171;
+    font-size: 0.95rem;
+    margin-bottom: 30px;
+  }
+
+  .listing-link {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .listing-card {
+    border: none;
+    border-radius: 16px;
+    overflow: hidden;
+    background: transparent;
+    transition: transform 0.2s ease;
+    height: 100%;
+  }
+
+  .listing-img-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 16px;
+    overflow: hidden;
+    background-color: #f7f7f7;
+  }
+
+  .listing-card img {
+    width: 100%;
+    height: 100% !important;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .listing-card:hover img {
+    transform: scale(1.03);
+  }
+
+  .listing-body {
+    padding: 12px 4px 4px 4px;
+  }
+
+  .listing-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #222;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 2px;
+  }
+
+  .listing-price {
+    font-size: 0.95rem;
+    color: #717171;
+  }
+
+  .listing-price strong {
+    color: #222;
+    font-weight: 600;
+  }
+
+  @media (max-width: 768px) {
+    .listings-page {
+      padding: 0 15px;
+    }
+    .tax-toggle {
+      display: none; /* Can hide toggle on smaller mobile views if space is constrained, or keep it */
+    }
+  }
+
+
+
+
+/* ==========================================
+   Navbar Styling
+========================================== */
+.custom-navbar {
+  padding: 0.75rem 0;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.brand-text {
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: #ff385c;
+  letter-spacing: -0.5px;
+}
+
+.explore-link {
+  font-weight: 600;
+  color: #222 !important;
+  position: relative;
+}
+
+.explore-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 12px;
+  right: 12px;
+  height: 2px;
+  background-color: #222;
+}
+
+/* Search Bar Pill Design */
+.search-bar-container {
+  display: flex;
+  align-items: center;
+  border: 1px solid #dddddd;
+  border-radius: 40px;
+  padding: 4px 4px 4px 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.2s ease;
+  width: 100%;
+  max-width: 320px;
+}
+
+.search-bar-container:hover {
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
+}
+
+.search-input {
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  padding: 0;
+  font-size: 0.9rem;
+}
+
+.search-btn {
+  background-color: #ff385c !important;
+  color: white !important;
+  border-radius: 50% !important;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  font-size: 0.8rem;
+  transition: background-color 0.2s ease;
+}
+
+.search-btn:hover {
+  background-color: #e00b41 !important;
+}
+
+/* Host Link & User Menu Pill */
+.host-link {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #222 !important;
+  border-radius: 22px;
+  padding: 8px 12px !important;
+  transition: background-color 0.2s ease;
+}
+
+.host-link:hover {
+  background-color: #f7f7f7;
+}
+
+.user-menu-dropdown {
+  background-color: #fff;
+  border-color: #dddddd !important;
+  cursor: pointer;
+  transition: box-shadow 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+
+.user-menu-dropdown:hover {
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.auth-links a {
+  font-size: 0.85rem;
+}
